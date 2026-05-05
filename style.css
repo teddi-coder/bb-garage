@@ -788,12 +788,93 @@ h1 .accent, h2 .accent { color: var(--bb-red); }
   line-height: 1.6;
 }
 
+/* ── Logo image ── */
+.logo-img {
+  height: 44px;
+  width: auto;
+  display: block;
+}
+.footer-logo-img {
+  height: 36px;
+  width: auto;
+  display: block;
+  margin-bottom: 14px;
+  opacity: 0.9;
+}
+
+/* ── Hero split layout ── */
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  min-height: 400px;
+}
+.hero-inner .container {
+  padding-top: 72px;
+  padding-bottom: 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hero-photo {
+  overflow: hidden;
+  position: relative;
+}
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ── About / Who We Are split ── */
+.about-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.about-photo img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 2px;
+}
+
+/* ── Dyno chart ── */
+.dyno-chart {
+  margin-top: 32px;
+}
+.dyno-chart img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--bb-border);
+  border-radius: 2px;
+}
+.dyno-chart-caption {
+  font-size: 13px;
+  color: var(--bb-muted);
+  margin-top: 10px;
+  font-style: italic;
+}
+
 /* ── Responsive ── */
 @media (max-width: 960px) {
   .cards-grid           { grid-template-columns: 1fr 1fr; }
   .reviews-grid         { grid-template-columns: 1fr 1fr; }
   .footer-grid          { grid-template-columns: 1fr 1fr; }
   .footer-brand         { grid-column: 1 / -1; }
+}
+
+@media (max-width: 960px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-photo { display: none; }
+  .about-split { grid-template-columns: 1fr; }
+  .about-photo { display: none; }
 }
 
 @media (max-width: 768px) {
