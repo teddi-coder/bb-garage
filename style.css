@@ -327,6 +327,58 @@ h1 .accent, h2 .accent { color: var(--bb-red); }
 .section--light .checklist li { color: var(--bb-dark); }
 .section--panel .checklist li { color: rgba(255,255,255,0.78); }
 
+/* Cross variant — red ✕ marker */
+.checklist--cross li::before {
+  content: '✕';
+  background: transparent;
+  color: var(--bb-red);
+  border: 1px solid var(--bb-red);
+  font-weight: 700;
+}
+
+/* ── Compare grid (V6 page) ── */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 32px;
+}
+.compare-col {
+  padding: 28px 32px;
+  border-radius: 4px;
+}
+.compare-col--generic {
+  background: #242424;
+  border: 1px solid var(--bb-dark-border);
+}
+.compare-col--bb {
+  background: #242424;
+  border: 1px solid var(--bb-red);
+}
+.compare-col-heading {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--bb-white);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--bb-dark-border);
+}
+.compare-col--bb .compare-col-heading { color: var(--bb-red); border-color: var(--bb-red); }
+
+/* ── Reason card label (V6 before/after) ── */
+.reason-card-label {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--bb-red);
+  margin-bottom: 14px;
+}
+
 /* ── Services checklist grid (homepage) ── */
 .services-grid {
   display: grid;
@@ -907,6 +959,7 @@ h1 .accent, h2 .accent { color: var(--bb-red); }
   .cards-grid,
   .cards-grid--2    { grid-template-columns: 1fr; }
   .reasons-grid     { grid-template-columns: 1fr; }
+  .compare-grid     { grid-template-columns: 1fr; }
   .services-grid    { grid-template-columns: 1fr; }
   .pack-grid        { grid-template-columns: 1fr; }
   .reviews-grid     { grid-template-columns: 1fr; }
