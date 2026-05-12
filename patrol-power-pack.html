@@ -411,6 +411,7 @@ function toggleFaq(questionEl) {
         body: JSON.stringify(data),
       });
       if (!res.ok) throw new Error(res.status);
+      if (window.dataLayer) window.dataLayer.push({ event: 'booking_conversion' });
       var first = data.customer_name.split(' ')[0];
       var sec = form.closest('section');
       if (sec) {
