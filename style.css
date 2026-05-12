@@ -977,3 +977,23 @@ h1 .accent, h2 .accent { color: var(--bb-red); }
   .nav-ctas .btn--outline { display: none; }
   .hero-stats { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ── Form success / error states ─────────────────────────── */
+.form-success {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+.form-success h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+.form-success p {
+  color: var(--bb-mid);
+  max-width: 520px;
+  margin: 0 auto;
+}
+.form-error {
+  color: #e53e3e;
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
