@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# WordPress slug → static HTML redirects (301 permanent)
+RedirectMatch 301 ^/next-gen-ranger-amarok-v6-dyno-tune/?$ /next-gen-ranger-v6.html
+RedirectMatch 301 ^/patrol-3-0-cr-power-pack/?$            /patrol-power-pack.html
+RedirectMatch 301 ^/ranger-power-pack/?$                   /ranger-power-pack.html
+RedirectMatch 301 ^/triton-ps-stage-2/?$                   /triton-power-pack.html
+RedirectMatch 301 ^/dyno-tuning-ipswich/?$                 /dyno-tuning.html
