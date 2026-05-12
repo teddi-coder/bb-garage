@@ -9,8 +9,19 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./style.css">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NTP5XHXN');</script>
+<!-- End Google Tag Manager -->
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTP5XHXN"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <!-- Topbar -->
 <div class="topbar">
@@ -364,6 +375,66 @@ function toggleFaq(questionEl) {
   var item = questionEl.parentElement;
   item.classList.toggle('open');
 }
+
+(function () {
+  var form = document.querySelector('.form-grid');
+  if (!form) return;
+  var SUPA_URL = 'https://prqbvbhuwfpdkkrkqizj.supabase.co';
+  var SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBycWJ2Ymh1d2ZwZGtrcmtxaXpqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY5OTA1MzQsImV4cCI6MjA5MjU2NjUzNH0.Io5IHsyp23yThoyZD7Ccs4UygTtwx_0rIRTlnS3pYZQ';
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var btn = form.querySelector('button[type="submit"]');
+    var orig = btn.textContent;
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    var errEl = form.querySelector('.form-error');
+    if (errEl) errEl.remove();
+
+    var data = {
+      customer_name:  form.querySelector('[name="full_name"]').value.trim(),
+      customer_email: form.querySelector('[name="email"]').value.trim(),
+      customer_phone: form.querySelector('[name="phone"]').value.trim(),
+      service_type:   form.querySelector('[name="service"]').value,
+      preferred_date: form.querySelector('[name="pref_date"]').value || null,
+      alt_date:       form.querySelector('[name="alt_date"]').value || null,
+      preferred_time: form.querySelector('[name="dropoff_time"]').value || null,
+      registration:   form.querySelector('[name="rego"]').value.trim() || null,
+      notes:          form.querySelector('[name="message"]').value.trim() || null,
+      source_page:    window.location.pathname,
+    };
+
+    try {
+      var res = await fetch(SUPA_URL + '/rest/v1/bb_garage_bookings', {
+        method: 'POST',
+        headers: {
+          'Content-Type':  'application/json',
+          'apikey':         SUPA_KEY,
+          'Authorization': 'Bearer ' + SUPA_KEY,
+          'Prefer':         'return=minimal',
+        },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error(res.status);
+      var first = data.customer_name.split(' ')[0];
+      var sec = form.closest('section');
+      if (sec) {
+        sec.innerHTML = '<div class="container"><div class="form-success">'
+          + '<h3>Booking Request Received!</h3>'
+          + '<p>Thanks ' + first + '. We’ll be in touch within one business day to confirm your booking. Check your inbox for a confirmation email.</p>'
+          + '<p style="margin-top:1rem;">Need to reach us sooner? <a href="tel:+61734664422" style="color:var(--bb-red);">Call us on 07 3466 4422</a>.</p>'
+          + '</div></div>';
+      }
+    } catch (_) {
+      btn.textContent = orig;
+      btn.disabled = false;
+      var p = document.createElement('p');
+      p.className = 'form-error';
+      p.textContent = 'Something went wrong. Please try again or call us on 07 3466 4422.';
+      form.querySelector('.form-submit').insertBefore(p, btn);
+    }
+  });
+}());
 </script>
 </body>
 </html>
