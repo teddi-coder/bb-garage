@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECU Tuning &amp; 4WD Performance — BB Garage West Ipswich</title>
+  <meta name="description" content="Dyno-proven ECU tuning for diesel 4WDs in West Ipswich. Next Gen Rangers, Prados, Land Cruisers. See the numbers. Book your free estimate.">
+  <meta name="robots" content="noindex">
+
+  <!-- TODO: Add Facebook Pixel here -->
+  <!-- TODO: Add Google Analytics / GA4 here -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bb-red:        #B72125;
+      --bb-red-dark:   #961a1e;
+      --bb-dark:       #1A1A1A;
+      --bb-offwhite:   #F0F0EB;
+      --bb-white:      #FFFFFF;
+      --bb-muted:      #666666;
+      --bb-border:     #E0E0DA;
+      --bb-dark-border:#2E2E2E;
+      --bb-panel:      #242424;
+      --font:          'Montserrat', 'Arial Black', Arial, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bb-dark);
+      color: var(--bb-offwhite);
+      font-family: var(--font);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HERO ─────────────────────────────────────────────────────── */
+    .hero {
+      background: var(--bb-dark);
+      border-bottom: 3px solid var(--bb-red);
+      padding: 64px 24px 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 40px,
+        rgba(183,33,37,0.04) 40px,
+        rgba(183,33,37,0.04) 41px
+      );
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      background: var(--bb-red);
+      color: var(--bb-white);
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-family: var(--font);
+      font-weight: 900;
+      font-size: clamp(36px, 7vw, 72px);
+      line-height: 1.05;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--bb-offwhite);
+      max-width: 860px;
+      margin: 0 auto 20px;
+    }
+
+    .hero h1 span {
+      color: var(--bb-red);
+    }
+
+    .hero-sub {
+      font-family: var(--font);
+      font-weight: 600;
+      font-size: clamp(13px, 2.5vw, 16px);
+      color: var(--bb-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--bb-red);
+      color: var(--bb-white);
+      font-family: var(--font);
+      font-weight: 900;
+      font-size: 16px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 18px 48px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.15s;
+      -webkit-appearance: none;
+    }
+
+    .btn-primary:hover {
+      background: var(--bb-red-dark);
+      transform: translateY(-2px);
+    }
+
+    /* ── TRUST BAR ────────────────────────────────────────────────── */
+    .trust-bar {
+      background: var(--bb-panel);
+      border-bottom: 1px solid var(--bb-dark-border);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--bb-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .trust-item::before {
+      content: '✓';
+      color: var(--bb-red);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    /* ── SECTION WRAPPER ──────────────────────────────────────────── */
+    .section {
+      padding: 72px 24px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--bb-red);
+      margin-bottom: 12px;
+    }
+
+    .section h2 {
+      font-family: var(--font);
+      font-weight: 900;
+      font-size: clamp(28px, 5vw, 46px);
+      line-height: 1.05;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--bb-offwhite);
+      margin-bottom: 24px;
+    }
+
+    /* ── BODY COPY ────────────────────────────────────────────────── */
+    .body-section {
+      background: #222222;
+      border-top: 1px solid var(--bb-dark-border);
+      border-bottom: 1px solid var(--bb-dark-border);
+    }
+
+    .body-intro {
+      font-size: 17px;
+      line-height: 1.75;
+      color: rgba(240,240,235,0.75);
+      margin-bottom: 36px;
+    }
+
+    .body-intro strong {
+      color: var(--bb-offwhite);
+    }
+
+    .what-you-get {
+      list-style: none;
+      display: grid;
+      gap: 16px;
+    }
+
+    .what-you-get li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      font-size: 16px;
+      color: rgba(240,240,235,0.78);
+      line-height: 1.55;
+    }
+
+    .what-you-get li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 4px;
+      height: 22px;
+      background: var(--bb-red);
+      margin-top: 3px;
+    }
+
+    /* ── DYNO RESULTS ─────────────────────────────────────────────── */
+    .dyno-section {
+      background: var(--bb-dark);
+    }
+
+    .dyno-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2px;
+      margin-top: 36px;
+    }
+
+    .dyno-card {
+      background: var(--bb-panel);
+      padding: 28px 24px;
+      border-top: 3px solid var(--bb-red);
+      border: 1px solid var(--bb-dark-border);
+      border-top: 3px solid var(--bb-red);
+    }
+
+    .dyno-vehicle {
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--bb-muted);
+      margin-bottom: 12px;
+    }
+
+    .dyno-stat {
+      font-family: var(--font);
+      font-weight: 900;
+      font-size: 48px;
+      line-height: 1;
+      color: var(--bb-offwhite);
+      margin-bottom: 4px;
+    }
+
+    .dyno-stat span {
+      color: var(--bb-red);
+    }
+
+    .dyno-label {
+      font-size: 13px;
+      color: var(--bb-muted);
+    }
+
+    /* ── TESTIMONIAL ──────────────────────────────────────────────── */
+    .testimonial-section {
+      background: var(--bb-red);
+      padding: 64px 24px;
+    }
+
+    .testimonial-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .testimonial-stars {
+      font-size: 22px;
+      letter-spacing: 4px;
+      margin-bottom: 20px;
+      color: var(--bb-white);
+    }
+
+    .testimonial-quote {
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: clamp(18px, 3.5vw, 28px);
+      line-height: 1.35;
+      color: var(--bb-white);
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-name {
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* ── FORM SECTION ─────────────────────────────────────────────── */
+    .form-section {
+      background: var(--bb-white);
+      border-top: 3px solid var(--bb-red);
+      padding: 72px 24px;
+    }
+
+    .form-inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .form-section .section-label {
+      color: var(--bb-red);
+      text-align: center;
+    }
+
+    .form-section h2 {
+      color: var(--bb-dark);
+      text-align: center;
+    }
+
+    .form-section .form-subtext {
+      text-align: center;
+      color: var(--bb-muted);
+      font-size: 15px;
+      margin-bottom: 40px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--bb-dark);
+    }
+
+    .form-group label .req {
+      color: var(--bb-red);
+      margin-left: 2px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--bb-offwhite);
+      border: 1px solid var(--bb-border);
+      color: var(--bb-dark);
+      font-family: var(--font);
+      font-size: 15px;
+      padding: 13px 16px;
+      outline: none;
+      transition: border-color 0.15s;
+      -webkit-appearance: none;
+      appearance: none;
+      border-radius: 0;
+      width: 100%;
+    }
+
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 40px;
+      background-color: var(--bb-offwhite);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--bb-red);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #aaa;
+    }
+
+    .btn-submit {
+      display: block;
+      width: 100%;
+      background: var(--bb-red);
+      color: var(--bb-white);
+      font-family: var(--font);
+      font-weight: 900;
+      font-size: 18px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border: none;
+      padding: 20px;
+      cursor: pointer;
+      margin-top: 24px;
+      transition: background 0.15s;
+      -webkit-appearance: none;
+    }
+
+    .btn-submit:hover { background: var(--bb-red-dark); }
+
+    .form-disclaimer {
+      text-align: center;
+      color: var(--bb-muted);
+      font-size: 13px;
+      margin-top: 16px;
+    }
+
+    /* ── FOOTER ───────────────────────────────────────────────────── */
+    .footer {
+      background: var(--bb-dark);
+      border-top: 2px solid var(--bb-dark-border);
+      padding: 36px 24px;
+      text-align: center;
+    }
+
+    .footer-details {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .footer-detail {
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--bb-muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .footer-detail:hover { color: var(--bb-red); }
+
+    .footer-copy {
+      font-size: 12px;
+      color: #444;
+    }
+
+    /* ── RESPONSIVE ───────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .form-grid { grid-template-columns: 1fr; }
+      .form-group.full { grid-column: 1; }
+      .dyno-grid { grid-template-columns: 1fr 1fr; }
+      .trust-bar { gap: 16px; }
+    }
+
+    @media (max-width: 400px) {
+      .dyno-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HERO ──────────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-eyebrow">West Ipswich, QLD</div>
+    <h1>
+      Your 4WD Has More In It.
+      <span>We'll Prove It On The Dyno.</span>
+    </h1>
+    <p class="hero-sub">ECU Tuning &middot; Dyno Runs &middot; 4WD Performance</p>
+    <a href="#enquiry-form" class="btn-primary">Get Your Free Estimate</a>
+  </section>
+
+  <!-- ── TRUST BAR ─────────────────────────────────────────────────── -->
+  <div class="trust-bar">
+    <span class="trust-item">In-House Dyno</span>
+    <span class="trust-item">Diesel 4WD Specialists</span>
+    <span class="trust-item">Ranger &middot; Prado &middot; Land Cruiser</span>
+    <span class="trust-item">West Ipswich</span>
+  </div>
+
+  <!-- ── BODY COPY ──────────────────────────────────────────────────── -->
+  <div class="body-section">
+    <div class="section">
+      <div class="section-label">Why BB Garage</div>
+      <h2>We Don&rsquo;t Guess.<br>We Dyno Tune.</h2>
+      <p class="body-intro">
+        At BB Garage, every tune is done on our in-house dyno so you can see exactly what your vehicle gained &mdash; in horsepower, torque, and real-world feel.<br><br>
+        We&rsquo;ve done it on <strong>Next Gen Rangers, Prados, Land Cruisers, Isuzu D-Maxes, and NP300s</strong>. If it&rsquo;s a diesel 4WD, we know it.
+      </p>
+      <ul class="what-you-get">
+        <li>A dyno-measured result you can see in black and white</li>
+        <li>ECU tuning by experienced mechanics who drive 4WDs themselves</li>
+        <li>Honest advice on what your vehicle needs &mdash; and what it doesn&rsquo;t</li>
+        <li>A clean, ready-to-go vehicle when you pick it up</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ── DYNO RESULTS ───────────────────────────────────────────────── -->
+  <div class="dyno-section">
+    <div class="section">
+      <div class="section-label">Real Numbers</div>
+      <h2>Dyno Results<br>That Speak For Themselves</h2>
+      <div class="dyno-grid">
+        <div class="dyno-card">
+          <div class="dyno-vehicle">Ford Next Gen Ranger</div>
+          <div class="dyno-stat">+<span>38.9</span></div>
+          <div class="dyno-label">HP gained &mdash; 176.6 &rarr; 215.5 HP</div>
+        </div>
+        <div class="dyno-card">
+          <div class="dyno-vehicle">Toyota Prado 2.8 AWD</div>
+          <div class="dyno-stat">+<span>25</span></div>
+          <div class="dyno-label">HP &middot; +54 Nm torque on the dyno</div>
+        </div>
+        <div class="dyno-card">
+          <div class="dyno-vehicle">Your 4WD</div>
+          <div class="dyno-stat" style="font-size:32px; padding-top:8px;">Find Out</div>
+          <div class="dyno-label">Get your free estimate below</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TESTIMONIAL ────────────────────────────────────────────────── -->
+  <section class="testimonial-section">
+    <div class="testimonial-inner">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="testimonial-quote">&ldquo;The results honestly exceeded my expectations. The performance gains after the tune were a great surprise, and the car is now running better than ever. When I picked it up, it was spotless.&rdquo;</p>
+      <div class="testimonial-name">&mdash; Kaden</div>
+    </div>
+  </section>
+
+  <!-- ── ENQUIRY FORM ────────────────────────────────────────────────── -->
+  <section class="form-section" id="enquiry-form">
+    <div class="form-inner">
+      <div class="section-label">No Obligation</div>
+      <h2>Get Your<br>Free Estimate</h2>
+      <p class="form-subtext">Tell us about your rig and we&rsquo;ll get back to you with options.</p>
+
+      <!-- TODO: Wire up form handler — check repo for existing Cloudflare Worker or Workers KV endpoint -->
+      <form id="enquiry" action="/thank-you" method="POST">
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label for="name">Name <span class="req">*</span></label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone <span class="req">*</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="0400 000 000" required>
+          </div>
+
+          <div class="form-group">
+            <label for="vehicle">Vehicle Make &amp; Model <span class="req">*</span></label>
+            <input type="text" id="vehicle" name="vehicle" placeholder="e.g. Ford Ranger Next Gen" required>
+          </div>
+
+          <div class="form-group">
+            <label for="year">Year <span class="req">*</span></label>
+            <input type="text" id="year" name="year" placeholder="e.g. 2023" required>
+          </div>
+
+          <div class="form-group full">
+            <label for="service">What are you looking for? <span class="req">*</span></label>
+            <select id="service" name="service" required>
+              <option value="" disabled selected>Select a service</option>
+              <option value="ecu-tune">ECU Tune</option>
+              <option value="dyno-run">Dyno Run</option>
+              <option value="4wd-build">4WD Build / Upgrades</option>
+              <option value="servicing">Servicing &amp; Maintenance</option>
+              <option value="not-sure">Not sure yet &mdash; just want advice</option>
+            </select>
+          </div>
+
+          <div class="form-group full">
+            <label for="notes">Anything else we should know? <span style="color:var(--bb-muted); font-weight:500; text-transform:none; letter-spacing:0;">(optional)</span></label>
+            <textarea id="notes" name="notes" placeholder="Mods, goals, questions &mdash; whatever&rsquo;s relevant"></textarea>
+          </div>
+
+        </div>
+
+        <button type="submit" class="btn-submit">Send My Enquiry</button>
+        <p class="form-disclaimer">No spam. No pressure. Just a real conversation about your rig.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ──────────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer-details">
+      <a href="https://maps.google.com/?q=87+Keogh+St+West+Ipswich+QLD" class="footer-detail" target="_blank" rel="noopener">&#128205; 87 Keogh St, West Ipswich QLD 4305</a>
+      <a href="tel:+61734664422" class="footer-detail">&#128222; Call Us</a>
+      <a href="https://www.bbgarage.net" class="footer-detail" target="_blank" rel="noopener">&#127760; www.bbgarage.net</a>
+    </div>
+    <p class="footer-copy">&copy; BB Garage. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('enquiry').addEventListener('submit', function(e) {
+      // Let the browser handle required field validation natively
+      // If all fields are valid, the form submits normally and redirects to /thank-you
+      const required = this.querySelectorAll('[required]');
+      let valid = true;
+      required.forEach(function(field) {
+        if (!field.value.trim()) {
+          field.style.borderColor = '#B72125';
+          valid = false;
+        } else {
+          field.style.borderColor = '#E0E0DA';
+        }
+      });
+      if (!valid) {
+        e.preventDefault();
+        return;
+      }
+      // Valid — allow native form submission → redirects to /thank-you
+    });
+  </script>
+
+</body>
+</html>
